@@ -1,0 +1,43 @@
+﻿@model List<KhoaHoc>
+@{
+    ViewData["Title"] = "Khóa học: Front End";
+    var listCourses = Model;
+    var listSubject = ViewData["listSubject"] as List<MonHoc>;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-9">
+            <div class="title">
+                <h3>Khóa học: Front End</h3>
+            </div>
+            <div class="subject">
+                @for(var i=0; i < listSubject.Count(); i++)
+                {
+                    {
+                        var num = i + 1;
+                        <div>@num. @listSubject[i].TenMonHoc</div>
+                    }
+                }
+            </div>
+        </div>
+        <div class="col-3 gutter">
+            <div class="title">
+                <h3>Khóa học</h3>
+            </div>
+            <div>
+                <ul>
+                    @foreach (var item in listCourses)
+                    {
+                        <li>
+                            <a href="?id=@item.Id">@item.TenKhoaHoc</a>
+                        </li>
+                    }
+                </ul>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+
